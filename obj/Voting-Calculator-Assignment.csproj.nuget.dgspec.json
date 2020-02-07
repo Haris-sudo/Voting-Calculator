@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ethan\\source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj": {}
+    "C:\\Users\\Ethan\\Source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ethan\\source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj": {
+    "C:\\Users\\Ethan\\Source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ethan\\source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj",
+        "projectUniqueName": "C:\\Users\\Ethan\\Source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj",
         "projectName": "Voting-Calculator-Assignment",
-        "projectPath": "C:\\Users\\Ethan\\source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj",
+        "projectPath": "C:\\Users\\Ethan\\Source\\repos\\Voting-Calculator-Assignment\\Voting-Calculator-Assignment.csproj",
         "packagesPath": "C:\\Users\\Ethan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ethan\\source\\repos\\Voting-Calculator-Assignment\\obj\\",
+        "outputPath": "C:\\Users\\Ethan\\Source\\repos\\Voting-Calculator-Assignment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ethan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[15.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -1,0 +1,28 @@
+name,population,eurozoneStatus
+Austria,8842000,true
+Belgium,11467923,true
+Bulgaria,7000039,false
+Croatia,4076246,false
+Cyprus,875898,true
+Czech Republic,10528984,false
+Denmark,5799763,false
+Estonia, 1324820,true
+Finland,5512119,true
+France,67028048,true
+Germany,82940663,true
+Greece,10722287,true
+Hungary,9772756,false
+Ireland,4904240,true
+Italy,61068437,true
+Latvia,1919968,true
+Lithuania,2794184,true
+Luxembourg,612179,true
+Malta,493559,true
+Netherlands,17423013,true
+Poland,37972812,false
+Portugal,10276617,true
+Romania,19405156,false
+Slovakia,5450421,true
+Slovenia,2080908,true
+Spain,46934632,true
+Sweden,10243000,false
