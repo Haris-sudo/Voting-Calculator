@@ -1,4 +1,4 @@
-# Voting-Calculatorr
+# Voting-Calculator
 
 This repository is for CMP1903M (Object Oriented Programming)'s first assignment. Our job is to recreate the following calculator as a C# coding project.
 
