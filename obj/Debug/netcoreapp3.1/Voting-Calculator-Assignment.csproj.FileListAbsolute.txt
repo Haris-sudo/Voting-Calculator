@@ -1,0 +1,13 @@
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\bin\Debug\netcoreapp3.1\Voting-Calculator-Assignment.exe
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\obj\Debug\netcoreapp3.1\Voting-Calculator-Assignment.csprojAssemblyReference.cache
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\obj\Debug\netcoreapp3.1\Voting-Calculator-Assignment.AssemblyInfoInputs.cache
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\obj\Debug\netcoreapp3.1\Voting-Calculator-Assignment.AssemblyInfo.cs
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\bin\Debug\netcoreapp3.1\Voting-Calculator-Assignment.deps.json
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\bin\Debug\netcoreapp3.1\Voting-Calculator-Assignment.runtimeconfig.json
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\bin\Debug\netcoreapp3.1\Voting-Calculator-Assignment.runtimeconfig.dev.json
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\bin\Debug\netcoreapp3.1\Voting-Calculator-Assignment.dll
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\bin\Debug\netcoreapp3.1\Voting-Calculator-Assignment.pdb
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\bin\Debug\netcoreapp3.1\CsvHelper.dll
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\obj\Debug\netcoreapp3.1\Voting-Calculator-Assignment.csproj.CopyComplete
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\obj\Debug\netcoreapp3.1\Voting-Calculator-Assignment.dll
+C:\Users\Ethan\Downloads\Voting-Calculator-Assignment\obj\Debug\netcoreapp3.1\Voting-Calculator-Assignment.pdb
