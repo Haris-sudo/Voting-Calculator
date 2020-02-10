@@ -65,7 +65,7 @@ namespace Voting_Calculator_Assignment
         {
             Console.WriteLine("This is fine.");
             
-
+            // Commented this until we can fix the .csv file issue.
             //Setup();
             
 
