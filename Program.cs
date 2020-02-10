@@ -29,19 +29,29 @@ namespace Voting_Calculator_Assignment
             }
         }
 
-        static bool YesNo(string text)
+        static bool YesNo(string text) // Use this whenever you need a straight y/n answer from the user.
         {
+            // Takes a single console key variable
             ConsoleKey choice;
             do {
-            Console.Write(text);
-            choice = Console.ReadKey(false).Key;
-            if(choice != ConsoleKey.Enter)
-            {
-                Console.WriteLine();
-            }
+                // Output the text specified when the function is called, then ask for a console input.
+                Console.Write(text);
+                
+                // Console.Readkey essentially takes the unicode value, and is useful for validating without the hassle
+                // string validation can quickly become. the false argument is simply whether or not to intercept the input
+                // - stopping it from being displayed entirely.
+                choice = Console.ReadKey(false).Key;
+                
+                // This simply adds a line every time a false input is entered.
+                if(choice != ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                }
 
             } while(choice != ConsoleKey.Y && choice != ConsoleKey.N);
+            // Could easily make alternate versions of this that work of of inputs other than y/n if needed.
 
+            // Probably a simpler way to handle this last part, if any have any ideas feel free.
             if(choice == ConsoleKey.Y)
             {
                 return true;
@@ -59,12 +69,14 @@ namespace Voting_Calculator_Assignment
             //Setup();
             
 
-            
+
             bool votingComplete = false;
 
             do { 
                 bool isEurozone = YesNo("Are all countries participating, or soley the eurozone members?(Y/N)");
                 
+                // Ok, so 
+
 
                 Console.WriteLine("{0} {1}", isEurozone.ToString(), funnyLolTest.ToString());
 
