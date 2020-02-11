@@ -91,12 +91,12 @@ namespace WinForms_VotingCalculator
             c.IsEnabled = countryEnabledCB.Checked;
             if (c.IsEnabled == false)
             {
-                OverallPopulation =- c.Population;
+                OverallPopulation -= c.Population;
                 MessageBox.Show(OverallPopulation.ToString());
             }
             else
             {
-                OverallPopulation =+ c.Population;
+                OverallPopulation += c.Population;
             }
             
             RefreshList();
