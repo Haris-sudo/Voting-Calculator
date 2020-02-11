@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EUVotingCalculator));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.totalPopVar = new System.Windows.Forms.Label();
+            this.totalPopPercentVar = new System.Windows.Forms.Label();
             this.totalPopPercentLbl = new System.Windows.Forms.Label();
             this.totalPopLbl = new System.Windows.Forms.Label();
             this.horizontalLine2 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.finalResultLbl = new System.Windows.Forms.Label();
             this.finalResultVarLbl = new System.Windows.Forms.Label();
             this.votingResultImg = new System.Windows.Forms.PictureBox();
-            this.totalPopPercentVar = new System.Windows.Forms.Label();
-            this.totalPopVar = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countryFlagImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.votingResultImg)).BeginInit();
@@ -76,6 +76,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(248, 397);
             this.panel1.TabIndex = 0;
+            // 
+            // totalPopVar
+            // 
+            this.totalPopVar.AutoSize = true;
+            this.totalPopVar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.totalPopVar.Location = new System.Drawing.Point(161, 335);
+            this.totalPopVar.Name = "totalPopVar";
+            this.totalPopVar.Size = new System.Drawing.Size(14, 16);
+            this.totalPopVar.TabIndex = 13;
+            this.totalPopVar.Text = "x";
+            // 
+            // totalPopPercentVar
+            // 
+            this.totalPopPercentVar.AutoSize = true;
+            this.totalPopPercentVar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.totalPopPercentVar.Location = new System.Drawing.Point(161, 355);
+            this.totalPopPercentVar.Name = "totalPopPercentVar";
+            this.totalPopPercentVar.Size = new System.Drawing.Size(14, 16);
+            this.totalPopPercentVar.TabIndex = 12;
+            this.totalPopPercentVar.Text = "x";
             // 
             // totalPopPercentLbl
             // 
@@ -203,6 +223,7 @@
             // 
             // countryBox
             // 
+            this.countryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.countryBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.countryBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.countryBox.FormattingEnabled = true;
@@ -210,7 +231,6 @@
             this.countryBox.Name = "countryBox";
             this.countryBox.Size = new System.Drawing.Size(238, 23);
             this.countryBox.TabIndex = 0;
-            this.countryBox.Text = "Choose a country...";
             this.countryBox.SelectedIndexChanged += new System.EventHandler(this.countryBox_SelectedIndexChanged);
             this.countryBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.comboBoxFormat);
             // 
@@ -260,26 +280,6 @@
             this.votingResultImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.votingResultImg.TabIndex = 12;
             this.votingResultImg.TabStop = false;
-            // 
-            // totalPopPercentVar
-            // 
-            this.totalPopPercentVar.AutoSize = true;
-            this.totalPopPercentVar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.totalPopPercentVar.Location = new System.Drawing.Point(161, 355);
-            this.totalPopPercentVar.Name = "totalPopPercentVar";
-            this.totalPopPercentVar.Size = new System.Drawing.Size(14, 16);
-            this.totalPopPercentVar.TabIndex = 12;
-            this.totalPopPercentVar.Text = "x";
-            // 
-            // totalPopVar
-            // 
-            this.totalPopVar.AutoSize = true;
-            this.totalPopVar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.totalPopVar.Location = new System.Drawing.Point(161, 335);
-            this.totalPopVar.Name = "totalPopVar";
-            this.totalPopVar.Size = new System.Drawing.Size(14, 16);
-            this.totalPopVar.TabIndex = 13;
-            this.totalPopVar.Text = "x";
             // 
             // EUVotingCalculator
             // 

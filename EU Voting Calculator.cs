@@ -87,17 +87,18 @@ namespace WinForms_VotingCalculator
 
         private void countryEnabledCB_Click(object sender, EventArgs e)
         {
-            var c = (Country)countryBox.SelectedItem;
+            var c = (Country)countryBox.SelectedItem; 
             c.IsEnabled = countryEnabledCB.Checked;
             if (c.IsEnabled == false)
             {
-                OverallPopulation = -c.Population;
+                OverallPopulation =- c.Population;
+                MessageBox.Show(OverallPopulation.ToString());
             }
             else
             {
-                OverallPopulation = +c.Population;
+                OverallPopulation =+ c.Population;
             }
-            string countryName = (c.Name);
+            
             RefreshList();
         }
     }
