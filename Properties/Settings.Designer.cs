@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WinForms_VotingCalc.Properties
+namespace WinForms_VotingCalculator.Properties
 {
 
 

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WinForms-VotingCalc")]
+[assembly: AssemblyTitle("WinForms-VotingCalculator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WinForms-VotingCalc")]
+[assembly: AssemblyProduct("WinForms-VotingCalculator")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("18072bfc-98f0-4610-9f88-64b6d4ce5927")]
+[assembly: Guid("6bc11b7f-d0d4-4e04-aa2c-6eff13819c50")]
 
 // Version information for an assembly consists of the following four values:
 //

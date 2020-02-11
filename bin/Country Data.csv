@@ -1,4 +1,4 @@
-name,population,eurozoneStatus,isEnabled
+Name,Population,EurozoneStatus,IsEnabled
 Austria,8842000,true,true
 Belgium,11467923,true,true
 Bulgaria,7000039,false,true
