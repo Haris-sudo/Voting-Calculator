@@ -59,11 +59,9 @@ namespace WinForms_VotingCalculator
 
                 countryEnabledCB.Checked = c.IsEnabled;
                 countryFlagImg.ImageLocation = (@"..\\flags\" + c.Name.Replace(" [Disabled]", "") + ".png");
-                MessageBox.Show(c.Population.ToString());
-                MessageBox.Show(OverallPopulation.ToString());
                 decimal pop = ((c.Population / OverallPopulation) * 100);
-                MessageBox.Show(pop.ToString());
-                totalPopPercentLbl.Text = totalPopPercentLbl.Text.Replace("xx.xx", (Math.Round(pop, 2).ToString()));
+                totalPopVar.Text = c.Population.ToString();
+                totalPopPercentVar.Text = ((Math.Round(pop, 2).ToString()) + "%");
             }
             catch (System.NullReferenceException)
             {

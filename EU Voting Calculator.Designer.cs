@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EUVotingCalculator));
             this.panel1 = new System.Windows.Forms.Panel();
             this.totalPopPercentLbl = new System.Windows.Forms.Label();
             this.totalPopLbl = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.finalResultLbl = new System.Windows.Forms.Label();
             this.finalResultVarLbl = new System.Windows.Forms.Label();
             this.votingResultImg = new System.Windows.Forms.PictureBox();
+            this.totalPopPercentVar = new System.Windows.Forms.Label();
+            this.totalPopVar = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countryFlagImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.votingResultImg)).BeginInit();
@@ -54,6 +57,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.totalPopVar);
+            this.panel1.Controls.Add(this.totalPopPercentVar);
             this.panel1.Controls.Add(this.totalPopPercentLbl);
             this.panel1.Controls.Add(this.totalPopLbl);
             this.panel1.Controls.Add(this.horizontalLine2);
@@ -76,26 +81,26 @@
             // 
             this.totalPopPercentLbl.AutoSize = true;
             this.totalPopPercentLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.totalPopPercentLbl.Location = new System.Drawing.Point(31, 344);
+            this.totalPopPercentLbl.Location = new System.Drawing.Point(19, 355);
             this.totalPopPercentLbl.Name = "totalPopPercentLbl";
-            this.totalPopPercentLbl.Size = new System.Drawing.Size(189, 16);
+            this.totalPopPercentLbl.Size = new System.Drawing.Size(147, 16);
             this.totalPopPercentLbl.TabIndex = 11;
-            this.totalPopPercentLbl.Text = "Population percentage: xx.xx%";
+            this.totalPopPercentLbl.Text = "Population percentage:";
             // 
             // totalPopLbl
             // 
             this.totalPopLbl.AutoSize = true;
             this.totalPopLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.totalPopLbl.Location = new System.Drawing.Point(58, 312);
+            this.totalPopLbl.Location = new System.Drawing.Point(58, 335);
             this.totalPopLbl.Name = "totalPopLbl";
-            this.totalPopLbl.Size = new System.Drawing.Size(129, 16);
+            this.totalPopLbl.Size = new System.Drawing.Size(108, 16);
             this.totalPopLbl.TabIndex = 10;
-            this.totalPopLbl.Text = "Total population: xxx";
+            this.totalPopLbl.Text = "Total population:";
             // 
             // horizontalLine2
             // 
             this.horizontalLine2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.horizontalLine2.Location = new System.Drawing.Point(-1, 289);
+            this.horizontalLine2.Location = new System.Drawing.Point(-1, 322);
             this.horizontalLine2.Name = "horizontalLine2";
             this.horizontalLine2.Size = new System.Drawing.Size(250, 2);
             this.horizontalLine2.TabIndex = 9;
@@ -104,7 +109,7 @@
             // 
             this.abstainRadioBtn.AutoSize = true;
             this.abstainRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.abstainRadioBtn.Location = new System.Drawing.Point(166, 258);
+            this.abstainRadioBtn.Location = new System.Drawing.Point(166, 287);
             this.abstainRadioBtn.Name = "abstainRadioBtn";
             this.abstainRadioBtn.Size = new System.Drawing.Size(71, 20);
             this.abstainRadioBtn.TabIndex = 8;
@@ -116,7 +121,7 @@
             // 
             this.noRadioBtn.AutoSize = true;
             this.noRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.noRadioBtn.Location = new System.Drawing.Point(99, 258);
+            this.noRadioBtn.Location = new System.Drawing.Point(99, 287);
             this.noRadioBtn.Name = "noRadioBtn";
             this.noRadioBtn.Size = new System.Drawing.Size(44, 20);
             this.noRadioBtn.TabIndex = 7;
@@ -128,7 +133,7 @@
             // 
             this.yesRadioBtn.AutoSize = true;
             this.yesRadioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.yesRadioBtn.Location = new System.Drawing.Point(17, 257);
+            this.yesRadioBtn.Location = new System.Drawing.Point(17, 286);
             this.yesRadioBtn.Name = "yesRadioBtn";
             this.yesRadioBtn.Size = new System.Drawing.Size(50, 20);
             this.yesRadioBtn.TabIndex = 6;
@@ -140,7 +145,7 @@
             // 
             this.votingSettingsLbl.AutoSize = true;
             this.votingSettingsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.votingSettingsLbl.Location = new System.Drawing.Point(66, 234);
+            this.votingSettingsLbl.Location = new System.Drawing.Point(66, 263);
             this.votingSettingsLbl.Name = "votingSettingsLbl";
             this.votingSettingsLbl.Size = new System.Drawing.Size(112, 16);
             this.votingSettingsLbl.TabIndex = 5;
@@ -149,7 +154,7 @@
             // resetEnabledBtn
             // 
             this.resetEnabledBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.resetEnabledBtn.Location = new System.Drawing.Point(123, 171);
+            this.resetEnabledBtn.Location = new System.Drawing.Point(123, 200);
             this.resetEnabledBtn.Name = "resetEnabledBtn";
             this.resetEnabledBtn.Size = new System.Drawing.Size(119, 47);
             this.resetEnabledBtn.TabIndex = 4;
@@ -159,7 +164,7 @@
             // eurozoneOnlyBtn
             // 
             this.eurozoneOnlyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.eurozoneOnlyBtn.Location = new System.Drawing.Point(4, 171);
+            this.eurozoneOnlyBtn.Location = new System.Drawing.Point(4, 200);
             this.eurozoneOnlyBtn.Name = "eurozoneOnlyBtn";
             this.eurozoneOnlyBtn.Size = new System.Drawing.Size(119, 47);
             this.eurozoneOnlyBtn.TabIndex = 1;
@@ -169,7 +174,7 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(-3, 223);
+            this.label1.Location = new System.Drawing.Point(-3, 252);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 2);
             this.label1.TabIndex = 3;
@@ -178,7 +183,7 @@
             // 
             this.countryEnabledCB.AutoSize = true;
             this.countryEnabledCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.countryEnabledCB.Location = new System.Drawing.Point(55, 151);
+            this.countryEnabledCB.Location = new System.Drawing.Point(55, 180);
             this.countryEnabledCB.Name = "countryEnabledCB";
             this.countryEnabledCB.Size = new System.Drawing.Size(132, 20);
             this.countryEnabledCB.TabIndex = 2;
@@ -191,7 +196,7 @@
             this.countryFlagImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.countryFlagImg.Location = new System.Drawing.Point(4, 32);
             this.countryFlagImg.Name = "countryFlagImg";
-            this.countryFlagImg.Size = new System.Drawing.Size(238, 113);
+            this.countryFlagImg.Size = new System.Drawing.Size(238, 142);
             this.countryFlagImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.countryFlagImg.TabIndex = 1;
             this.countryFlagImg.TabStop = false;
@@ -212,7 +217,7 @@
             // verticalLine
             // 
             this.verticalLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.verticalLine.Location = new System.Drawing.Point(254, 0);
+            this.verticalLine.Location = new System.Drawing.Point(248, 0);
             this.verticalLine.Name = "verticalLine";
             this.verticalLine.Size = new System.Drawing.Size(2, 382);
             this.verticalLine.TabIndex = 12;
@@ -247,12 +252,34 @@
             // 
             // votingResultImg
             // 
-            this.votingResultImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.votingResultImg.Location = new System.Drawing.Point(561, 44);
+            this.votingResultImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.votingResultImg.Image = ((System.Drawing.Image)(resources.GetObject("votingResultImg.Image")));
+            this.votingResultImg.Location = new System.Drawing.Point(561, 32);
             this.votingResultImg.Name = "votingResultImg";
-            this.votingResultImg.Size = new System.Drawing.Size(225, 213);
+            this.votingResultImg.Size = new System.Drawing.Size(222, 218);
+            this.votingResultImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.votingResultImg.TabIndex = 12;
             this.votingResultImg.TabStop = false;
+            // 
+            // totalPopPercentVar
+            // 
+            this.totalPopPercentVar.AutoSize = true;
+            this.totalPopPercentVar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.totalPopPercentVar.Location = new System.Drawing.Point(161, 355);
+            this.totalPopPercentVar.Name = "totalPopPercentVar";
+            this.totalPopPercentVar.Size = new System.Drawing.Size(14, 16);
+            this.totalPopPercentVar.TabIndex = 12;
+            this.totalPopPercentVar.Text = "x";
+            // 
+            // totalPopVar
+            // 
+            this.totalPopVar.AutoSize = true;
+            this.totalPopVar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.totalPopVar.Location = new System.Drawing.Point(161, 335);
+            this.totalPopVar.Name = "totalPopVar";
+            this.totalPopVar.Size = new System.Drawing.Size(14, 16);
+            this.totalPopVar.TabIndex = 13;
+            this.totalPopVar.Text = "x";
             // 
             // EUVotingCalculator
             // 
@@ -266,7 +293,7 @@
             this.Controls.Add(this.verticalLine);
             this.Controls.Add(this.panel1);
             this.Name = "EUVotingCalculator";
-            this.Text = "Form1";
+            this.Text = "EU Voting Calculator";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countryFlagImg)).EndInit();
@@ -297,6 +324,8 @@
         private System.Windows.Forms.Label finalResultLbl;
         private System.Windows.Forms.Label finalResultVarLbl;
         private System.Windows.Forms.PictureBox votingResultImg;
+        private System.Windows.Forms.Label totalPopPercentVar;
+        private System.Windows.Forms.Label totalPopVar;
     }
 }
 
