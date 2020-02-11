@@ -78,7 +78,7 @@ namespace Voting_Calculator_Assignment
                 // Ok, so 
 
 
-                Console.WriteLine("{0} {1}", isEurozone.ToString(), funnyLolTest.ToString());
+                Console.WriteLine("{0}", isEurozone.ToString());
 
                 //votingComplete = true;
 
