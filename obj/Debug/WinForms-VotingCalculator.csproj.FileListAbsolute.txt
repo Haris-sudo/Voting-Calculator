@@ -30,3 +30,17 @@ C:\Users\computing\Documents\GitHub\Voting-Calculator-Assignment\obj\Debug\WinFo
 C:\Users\computing\Documents\GitHub\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csproj.CopyComplete
 C:\Users\computing\Documents\GitHub\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.exe
 C:\Users\computing\Documents\GitHub\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.pdb
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.exe.config
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.exe
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.pdb
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\bin\Debug\CsvHelper.xml
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csprojAssemblyReference.cache
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms_VotingCalculator.EUVotingCalculator.resources
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms_VotingCalculator.Properties.Resources.resources
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csproj.GenerateResource.cache
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csproj.CopyComplete
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.exe
+C:\Users\Ethan\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.pdb

@@ -1,28 +1,28 @@
-Name,Population,EurozoneStatus,IsEnabled
-Austria,8842000,true,true
-Belgium,11467923,true,true
-Bulgaria,7000039,false,true
-Croatia,4076246,false,true
-Cyprus,875898,true,true
-Czech Republic,10528984,false,true
-Denmark,5799763,false,true
-Estonia, 1324820,true,true
-Finland,5512119,true,true
-France,67028048,true,true
-Germany,82940663,true,true
-Greece,10722287,true,true
-Hungary,9772756,false,true
-Ireland,4904240,true,true
-Italy,61068437,true,true
-Latvia,1919968,true,true
-Lithuania,2794184,true,true
-Luxembourg,612179,true,true
-Malta,493559,true,true
-Netherlands,17423013,true,true
-Poland,37972812,false,true
-Portugal,10276617,true,true
-Romania,19405156,false,true
-Slovakia,5450421,true,true
-Slovenia,2080908,true,true
-Spain,46934632,true,true
-Sweden,10243000,false,true
+Name,Population,EurozoneStatus,IsEnabled,PopPercent
+Austria,8842000,true,true,0
+Belgium,11467923,true,true,0
+Bulgaria,7000039,false,true,0
+Croatia,4076246,false,true,0
+Cyprus,875898,true,true,0
+Czech Republic,10528984,false,true,0
+Denmark,5799763,false,true,0
+Estonia, 1324820,true,true,0
+Finland,5512119,true,true,0
+France,67028048,true,true,0
+Germany,82940663,true,true,0
+Greece,10722287,true,true,0
+Hungary,9772756,false,true,0
+Ireland,4904240,true,true,0
+Italy,61068437,true,true,0
+Latvia,1919968,true,true,0
+Lithuania,2794184,true,true,0
+Luxembourg,612179,true,true,0
+Malta,493559,true,true,0
+Netherlands,17423013,true,true,0
+Poland,37972812,false,true,0
+Portugal,10276617,true,true,0
+Romania,19405156,false,true,0
+Slovakia,5450421,true,true,0
+Slovenia,2080908,true,true,0
+Spain,46934632,true,true,0
+Sweden,10243000,false,true,0

@@ -15,18 +15,21 @@ namespace WinForms_VotingCalculator
         public int Population { get; set; }
         public bool EurozoneStatus { get; set; }
         public bool IsEnabled { get; set; }
+
+        public decimal PopPercent { get; set; }
         // Utilises a nullable bool for the vote, meaning we have three potential statuses of the bool.
         private bool? _vote;
         // This is perfect for the yes, no and abstain states of the vote.
 
 
-        public Country(string Name, int Population, bool EurozoneStatus, bool IsEnabled)
+        public Country(string Name, int Population, bool EurozoneStatus, bool IsEnabled, decimal PopPercent)
         {
             this.Name = Name;
             this.Population = Population;
             this.EurozoneStatus = EurozoneStatus;
             this.IsEnabled = IsEnabled;
-            this.ChangeVote(null);
+            this.ChangeVote(true);
+            this.PopPercent = PopPercent;
 
         }
 
