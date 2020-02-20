@@ -1,15 +1,10 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CsvHelper;
-using System.IO;
 using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
 
 
 namespace WinForms_VotingCalculator
@@ -23,12 +18,18 @@ namespace WinForms_VotingCalculator
         public List<Country> abstainCountries = new List<Country>();
 
         public decimal OverallPopulation { get; set; }
+        public int NumOfCountries { get; set; }
+
+        public decimal minYesPercent { get; set; }
+        
+        public decimal minYesPop { get; set; }
 
 
         public EUVotingCalculator()
         {
             
             OverallPopulation = 447470672;
+            NumOfCountries = 27;
             using (var reader = new StreamReader("..\\Country Data.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
@@ -58,37 +59,106 @@ namespace WinForms_VotingCalculator
             countryBox.DisplayMember = "Name";
             countryBox.ValueMember = "Name";
             countryBox.DataSource = countryList;
+        
+                
+        }
 
-            msPercentYes.Text = ("0");
+        public void EvaluateResult()
+        {
+            if ((Convert.ToDecimal(msPercentYes.Text) > minYesPercent) && (Convert.ToDecimal(popPercentYes.Text) > minYesPop))
+            {
+                finalResultVarLbl.Text = "Approved";
+                votingResultImg.ImageLocation = (@"..\\icons\up-arrow.png");
+            }
+            else
+            {
+                finalResultVarLbl.Text = "Rejected";
+                votingResultImg.ImageLocation = (@"..\\icons\down-arrow.png");
+            }
+        }
+
+        public void RecalcVotes()
+        {
+
+            decimal msYesVal = 0;
+            decimal msNoVal = 0;
+            decimal msAbstainVal = 0;
+
+            decimal popYesVal = 0;
+            decimal popNoVal = 0;
+            decimal popAbstainVal = 0;
+
+
             foreach (Country c in countryList)
             {
-                if (c.IsEnabled) {
-                    
-                    switch (c.GetVote()) {
-                        case true:
-                            var temp = Decimal.Parse(msPercentYes.Text);
-                            msPercentYes.Text = ((temp + c.PopPercent).ToString());
-                            break;
+                if (c.IsEnabled)
+                {
+                    switch (c.GetVote())
+                        {
+                            case true:
+                                popYesVal += c.PopPercent;
+                                msYesVal += Decimal.Divide(1, NumOfCountries) * 100;
+                                break;
 
-                        case false:
-                            noCountries.Add(c);
-                            break;
+                            case false:
+                                popNoVal += c.PopPercent;
+                                msNoVal += Decimal.Divide(1,NumOfCountries) * 100;
+                                break;
 
-                        case null:
-                            abstainCountries.Add(c);
-                            break;
-                    }
+                            case null:
+                                popAbstainVal += c.PopPercent;
+                                msAbstainVal  += Decimal.Divide(1, NumOfCountries) * 100;
+                                break;
+                        }
                 }
+                
             }
 
-            
-                
+            msPercentYes.Text = decimal.Round(msYesVal,2).ToString();
+            popPercentYes.Text = decimal.Round(popYesVal,2).ToString();
+
+            msPercentNo.Text = decimal.Round(msNoVal, 2).ToString();
+            popPercentNo.Text = decimal.Round(popNoVal, 2).ToString();
+
+            msPercentAbstain.Text = decimal.Round(msAbstainVal, 2).ToString();
+            popPercentAbstain.Text = decimal.Round(popAbstainVal, 2).ToString();
+
+            EvaluateResult();
+
         }
 
         private void votingRule_SelectedIndexChanged(object sender, EventArgs e)
         {
             // here goes code to change calculations and images based on
             // the voting rule selected.
+
+            switch (votingRule.Text)
+            {
+                
+                case "Qualified majority":
+                    minYesPercent = 55;
+                    minYesPop = 65;
+                    break;
+
+                case "Reinforced qualified majority":
+                    minYesPercent = 72;
+                    minYesPop = 65;
+                    break;
+
+                case "Simple majority":
+                    minYesPercent = 50;
+                    minYesPop = 0;
+                    break;
+
+                case "Unanimity":
+                    minYesPercent = 100;
+                    minYesPop = 0;
+                    break;
+
+            }
+            msMinYes.Text = minYesPercent.ToString();
+            popMinYes.Text = minYesPop.ToString();
+
         }
 
         private void countryBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,6 +172,25 @@ namespace WinForms_VotingCalculator
                 c.PopPercent = ((c.Population / OverallPopulation) * 100);
                 totalPopVar.Text = c.Population.ToString();
                 totalPopPercentVar.Text = ((Math.Round(c.PopPercent, 2).ToString()) + "%");
+
+                noRadioBtn.Checked = false;
+                yesRadioBtn.Checked = false;
+                abstainRadioBtn.Checked = false;
+
+                switch (c.GetVote())
+                {
+                    case true:
+                        yesRadioBtn.Checked = true;
+                        break;
+
+                    case false:
+                        noRadioBtn.Checked = true;
+                        break;
+
+                    case null:
+                        abstainRadioBtn.Checked = true;
+                        break;
+                }
             }
             catch (System.NullReferenceException)
             {
@@ -109,6 +198,32 @@ namespace WinForms_VotingCalculator
             }
 
 
+        }
+
+        private void resetEnabledBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Country c in countryList)
+            {
+                if (c.IsEnabled == false) {
+                    NumOfCountries += 1;
+                }
+
+                c.IsEnabled = true;
+            }
+
+            totalEnabledStates.Text = NumOfCountries.ToString();
+            RefreshList();
+            RecalcVotes();
+            RecalcPercents();
+            
+        }
+
+        public void RecalcPercents()
+        {
+            foreach (Country c in countryList)
+            {
+                c.PopPercent = decimal.Divide(c.Population, OverallPopulation) * 100;
+            }
         }
         private void comboBoxFormat(object sender, ListControlConvertEventArgs e)
         {
@@ -132,18 +247,53 @@ namespace WinForms_VotingCalculator
             if (c.IsEnabled == false)
             {
                 OverallPopulation -= c.Population;
-                MessageBox.Show(OverallPopulation.ToString());
+                NumOfCountries -= 1;
+                totalEnabledStates.Text = NumOfCountries.ToString();
                 totalPopPercentLbl.ForeColor = SystemColors.AppWorkspace;
                 totalPopPercentVar.ForeColor = SystemColors.AppWorkspace;
             }
             else
             {
                 OverallPopulation += c.Population;
+                NumOfCountries += 1;
+                totalEnabledStates.Text = NumOfCountries.ToString();
                 totalPopPercentLbl.ForeColor = SystemColors.ControlText;
                 totalPopPercentVar.ForeColor = SystemColors.ControlText;
             }
-            
+
+            RecalcPercents();
+            RecalcVotes();
             RefreshList();
+        }
+
+        private void abstainRadioBtn_Click(object sender, EventArgs e)
+        {
+            if (abstainRadioBtn.Checked)
+            {
+                var c = (Country)countryBox.SelectedItem;
+                c.ChangeVote(null);
+                RecalcVotes();
+            }
+        }
+
+        private void noRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (noRadioBtn.Checked)
+            {
+                var c = (Country)countryBox.SelectedItem;
+                c.ChangeVote(false);
+                RecalcVotes();
+            }
+        }
+
+        private void yesRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (yesRadioBtn.Checked)
+            {
+                var c = (Country)countryBox.SelectedItem;
+                c.ChangeVote(true);
+                RecalcVotes();
+            }
         }
     }
 }
