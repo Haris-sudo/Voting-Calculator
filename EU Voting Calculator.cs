@@ -12,6 +12,7 @@ namespace WinForms_VotingCalculator
     public partial class EUVotingCalculator : Form
     {
         public List<Country> countryList = new List<Country>();
+        public List<Country> eurozoneOnly = new List<Country>();
 
         public List<Country> yesCountries = new List<Country>();
         public List<Country> noCountries = new List<Country>();
@@ -43,6 +44,7 @@ namespace WinForms_VotingCalculator
                     countryList.Add(newCountry);
 
                 }
+                EuroZoneOnly(countryList);
 
                 InitializeComponent();
                 countryBox.DisplayMember = "Name";
@@ -62,6 +64,8 @@ namespace WinForms_VotingCalculator
         
                 
         }
+
+        
 
         public void EvaluateResult()
         {
@@ -198,6 +202,24 @@ namespace WinForms_VotingCalculator
             }
 
 
+        }
+
+
+        private void eurozoneOnlyBtn_Click(object sender, EventArgs e)
+        {
+            foreach(Country c in countryList)
+            {
+                if(!c.EurozoneStatus)
+                {
+                    c.IsEnabled = false;
+                    NumOfCountries -= 1;
+                }
+
+            }
+            totalEnabledStates.Text = NumOfCountries.ToString();
+            RefreshList();
+            RecalcVotes();
+            RecalcPercents();
         }
 
         private void resetEnabledBtn_Click(object sender, EventArgs e)
