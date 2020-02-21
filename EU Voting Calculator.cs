@@ -207,6 +207,12 @@ namespace WinForms_VotingCalculator
 
         private void eurozoneOnlyBtn_Click(object sender, EventArgs e)
         {
+
+            // An example of abstraction; The loop performed here goes over every country individually and modifies it's properties
+            // based on a certain conition. For the user, this is instantaneous and hidden - once the button is clicked the effect is applied out of view.
+
+            // In this particular example, the button disables several countries, but the user does not see this, they shall simply find these countries disabled should
+            // they select them from the dropdown menu.
             foreach(Country c in countryList)
             {
                 if(!c.EurozoneStatus)
@@ -224,6 +230,11 @@ namespace WinForms_VotingCalculator
 
         private void resetEnabledBtn_Click(object sender, EventArgs e)
         {
+            // An example of abstraction; The loop performed here goes over every country individually and modifies it's properties
+            // based on a certain conition. For the user, this is instantaneous and hidden - once the button is clicked the effect is applied out of view.
+
+            // In this particular example, the button enables all previously disabled countries, but the user does not see this, they shall simply find these 
+            // countries disabled should they select them from the dropdown menu.
             foreach (Country c in countryList)
             {
                 if (c.IsEnabled == false) {

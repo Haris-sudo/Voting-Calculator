@@ -20,6 +20,9 @@ namespace WinForms_VotingCalculator
         // Utilises a nullable bool for the vote, meaning we have three potential statuses of the bool.
         private bool? _vote;
         // This is perfect for the yes, no and abstain states of the vote.
+        // This variable is never directly modified in anyway - unless you go through the two methods given below - 
+        // - used for changing and viewing the countries vote, you cannot access the _vote variable. This is a useful method of encapsulation, as it ensures
+        // that the _vote variable is only modified internally, preventing errors related to a countries vote from ocvcuring outside the class.
 
 
         public Country(string Name, int Population, bool EurozoneStatus, bool IsEnabled, decimal PopPercent)
@@ -36,11 +39,14 @@ namespace WinForms_VotingCalculator
 
         public void ChangeVote(bool? newVote)
         {
+            // Takes a bool? and applies it to the private variable _vote
+            // As you can see, the code for this change is done within the class, not outside of it.
             _vote = newVote;
         }
 
         public bool? GetVote()
         {
+            // This allows external programs to grab the _vote variable if needed, but it does not let them modify/redefine the instance itself.
             return _vote;
         }
 
