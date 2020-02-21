@@ -12,7 +12,7 @@ namespace WinForms_VotingCalculator
     public partial class EUVotingCalculator : Form
     {
         public List<Country> countryList = new List<Country>();
-        public List<Country> eurozoneOnly = new List<Country>();
+
 
         public List<Country> yesCountries = new List<Country>();
         public List<Country> noCountries = new List<Country>();
@@ -44,7 +44,7 @@ namespace WinForms_VotingCalculator
                     countryList.Add(newCountry);
 
                 }
-                EuroZoneOnly(countryList);
+
 
                 InitializeComponent();
                 countryBox.DisplayMember = "Name";
@@ -208,7 +208,7 @@ namespace WinForms_VotingCalculator
         private void eurozoneOnlyBtn_Click(object sender, EventArgs e)
         {
 
-            // An example of abstraction; The loop performed here goes over every country individually and modifies it's properties
+            // An example of abstraction; The loop performed here goes over every country individually and modifies its properties
             // based on a certain conition. For the user, this is instantaneous and hidden - once the button is clicked the effect is applied out of view.
 
             // In this particular example, the button disables several countries, but the user does not see this, they shall simply find these countries disabled should
@@ -230,11 +230,7 @@ namespace WinForms_VotingCalculator
 
         private void resetEnabledBtn_Click(object sender, EventArgs e)
         {
-            // An example of abstraction; The loop performed here goes over every country individually and modifies it's properties
-            // based on a certain conition. For the user, this is instantaneous and hidden - once the button is clicked the effect is applied out of view.
-
-            // In this particular example, the button enables all previously disabled countries, but the user does not see this, they shall simply find these 
-            // countries disabled should they select them from the dropdown menu.
+            // This particular example is essentially the same as the above in principle - this time enabling all previously disabled countries
             foreach (Country c in countryList)
             {
                 if (c.IsEnabled == false) {

@@ -19,10 +19,8 @@ namespace WinForms_VotingCalculator
         public decimal PopPercent { get; set; }
         // Utilises a nullable bool for the vote, meaning we have three potential statuses of the bool.
         private bool? _vote;
-        // This is perfect for the yes, no and abstain states of the vote.
-        // This variable is never directly modified in anyway - unless you go through the two methods given below - 
-        // - used for changing and viewing the countries vote, you cannot access the _vote variable. This is a useful method of encapsulation, as it ensures
-        // that the _vote variable is only modified internally, preventing errors related to a countries vote from ocvcuring outside the class.
+        // This is a useful method of encapsulation, as it ensures that the _vote variable is only modified 
+        // internally, preventing errors related to a countries vote from ocvcuring outside the class.
 
 
         public Country(string Name, int Population, bool EurozoneStatus, bool IsEnabled, decimal PopPercent)
