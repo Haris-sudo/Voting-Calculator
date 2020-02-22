@@ -29,6 +29,7 @@ namespace WinForms_VotingCalculator
         public EUVotingCalculator()
         {
             
+            // Creates array of countries from the csv file.
             OverallPopulation = 447470672;
             NumOfCountries = 27;
             using (var reader = new StreamReader("..\\Country Data.csv"))
@@ -176,6 +177,8 @@ namespace WinForms_VotingCalculator
 
         private void countryBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            // This function fetches and calculates all the relevent data needed for the selected country.
             try
             {
                 var c = (Country)countryBox.SelectedItem;
@@ -205,6 +208,7 @@ namespace WinForms_VotingCalculator
                         break;
                 }
             }
+
             catch (System.NullReferenceException)
             {
 
