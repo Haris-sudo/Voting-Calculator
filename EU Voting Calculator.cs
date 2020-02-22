@@ -56,6 +56,8 @@ namespace WinForms_VotingCalculator
         }
         public void RefreshList()
         {
+
+
             countryBox.DataSource = null;
             countryBox.Items.Clear();
             countryBox.DisplayMember = "Name";
@@ -69,6 +71,8 @@ namespace WinForms_VotingCalculator
 
         public void EvaluateResult()
         {
+
+            // Changing the UI based on whether the overall percentage is above or the same as the percentage needed for the vote to be passed.
             if ((Convert.ToDecimal(msPercentYes.Text) > minYesPercent) && (Convert.ToDecimal(popPercentYes.Text) > minYesPop))
             {
                 finalResultVarLbl.Text = "Approved";
@@ -84,7 +88,7 @@ namespace WinForms_VotingCalculator
         public void RecalcVotes()
         {
             RecalcPop();
-            // Redefining overall population to get correct values for the percent calculations
+            // Redefining overall population to get correct values for the percent calculations.
             RecalcPercents();
 
             decimal msYesVal = 0;
@@ -100,6 +104,8 @@ namespace WinForms_VotingCalculator
             { 
                 if (c.IsEnabled)
                 {
+
+                    // Removing the disabled countries vote from the overall percentages.
                     switch (c.GetVote())
                         {
                             case true:
@@ -136,8 +142,8 @@ namespace WinForms_VotingCalculator
 
         private void votingRule_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // here goes code to change calculations and images based on
-            // the voting rule selected.
+            // Here goes code to change calculations and images as well as the minimum percentages required for a vote to be passed
+            // based on the voting rule selected.
 
             switch (votingRule.Text)
             {
@@ -234,7 +240,7 @@ namespace WinForms_VotingCalculator
         private void resetEnabledBtn_Click(object sender, EventArgs e)
         {
             
-            // This particular example is essentially the same as the above in principle - this time enabling all previously disabled countries
+            // This particular example is essentially the same as the above in principle - this time enabling all previously disabled countries.
             foreach (Country c in countryList)
             {
                 if (c.IsEnabled == false) 
@@ -254,6 +260,8 @@ namespace WinForms_VotingCalculator
 
         public void RecalcPop()
         {
+
+            // Caclulating the overall population of the enabled countries.
             OverallPopulation = 0;
             foreach(Country c in countryList)
             {
@@ -266,13 +274,18 @@ namespace WinForms_VotingCalculator
 
         public void RecalcPercents()
         {
+
+            // Calculating the overall population percentages once a vote has been cast.
             foreach (Country c in countryList)
             {
                 c.PopPercent = decimal.Divide(c.Population, OverallPopulation) * 100;
             }
         }
+
         private void comboBoxFormat(object sender, ListControlConvertEventArgs e)
         {
+
+            // Adding a disabled indicator to show which countries have been disabled.
             bool c = ((Country)e.ListItem).IsEnabled == false;
             string countryName = ((Country)e.ListItem).Name;
             if (c)
@@ -288,6 +301,8 @@ namespace WinForms_VotingCalculator
 
         private void countryEnabledCB_Click(object sender, EventArgs e)
         {
+
+            // The changes that result from enabling and disabling countries.
             var c = (Country)countryBox.SelectedItem; 
             c.IsEnabled = countryEnabledCB.Checked;
             if (c.IsEnabled == false)
@@ -307,12 +322,15 @@ namespace WinForms_VotingCalculator
                 totalPopPercentVar.ForeColor = SystemColors.ControlText;
             }
 
+            // Performing calculations based on the enabled and disabled countries.
             RecalcVotes();
             RefreshList();
         }
 
         private void abstainRadioBtn_Click(object sender, EventArgs e)
         {
+
+            // The effect abstaining has on the overall percentages.
             if (abstainRadioBtn.Checked)
             {
                 var c = (Country)countryBox.SelectedItem;
@@ -323,6 +341,8 @@ namespace WinForms_VotingCalculator
 
         private void noRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
+
+            // The effect voting no has on the overall percentages.
             if (noRadioBtn.Checked)
             {
                 var c = (Country)countryBox.SelectedItem;
@@ -331,6 +351,8 @@ namespace WinForms_VotingCalculator
             }
         }
 
+
+        // The effect voting yes has on the overall percentages.
         private void yesRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (yesRadioBtn.Checked)
