@@ -65,6 +65,19 @@ namespace WinForms_VotingCalculator
                 
         }
 
+        public decimal PopCalc()
+        {
+            OverallPopulation = 0;
+            foreach (Country c in countryList)
+            {
+                if (c.IsEnabled)
+                {
+                    OverallPopulation += c.Population;
+                }
+            }
+            return OverallPopulation;
+        }
+
         
 
         public void EvaluateResult()
@@ -84,6 +97,7 @@ namespace WinForms_VotingCalculator
         public void RecalcVotes()
         {
             // Redefining overall population to get correct values for the percent calculations
+            PopCalc();
             RecalcPercents();
 
             decimal msYesVal = 0;
@@ -232,7 +246,6 @@ namespace WinForms_VotingCalculator
 
         private void resetEnabledBtn_Click(object sender, EventArgs e)
         {
-            OverallPopulation = 447470672;
             // This particular example is essentially the same as the above in principle - this time enabling all previously disabled countries
             foreach (Country c in countryList)
             {
