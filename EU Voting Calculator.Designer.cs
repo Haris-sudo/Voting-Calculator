@@ -242,6 +242,7 @@
             this.eurozoneOnlyBtn.TabIndex = 1;
             this.eurozoneOnlyBtn.Text = "Eurozone countries only";
             this.eurozoneOnlyBtn.UseVisualStyleBackColor = true;
+            this.eurozoneOnlyBtn.Click += new System.EventHandler(this.eurozoneOnlyBtn_Click);
             // 
             // label1
             // 
