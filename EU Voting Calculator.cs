@@ -83,6 +83,8 @@ namespace WinForms_VotingCalculator
 
         public void RecalcVotes()
         {
+            // Redefining overall population to get correct values for the percent calculations
+            RecalcPercents();
 
             decimal msYesVal = 0;
             decimal msNoVal = 0;
@@ -94,7 +96,7 @@ namespace WinForms_VotingCalculator
 
 
             foreach (Country c in countryList)
-            {
+            { 
                 if (c.IsEnabled)
                 {
                     switch (c.GetVote())
@@ -215,36 +217,37 @@ namespace WinForms_VotingCalculator
             // they select them from the dropdown menu.
             foreach(Country c in countryList)
             {
-                if(!c.EurozoneStatus)
+                if (c.IsEnabled & !c.EurozoneStatus)
                 {
                     c.IsEnabled = false;
                     NumOfCountries -= 1;
                 }
 
+
             }
             totalEnabledStates.Text = NumOfCountries.ToString();
             RefreshList();
             RecalcVotes();
-            RecalcPercents();
         }
 
         private void resetEnabledBtn_Click(object sender, EventArgs e)
         {
+            OverallPopulation = 447470672;
             // This particular example is essentially the same as the above in principle - this time enabling all previously disabled countries
             foreach (Country c in countryList)
             {
                 if (c.IsEnabled == false) {
                     NumOfCountries += 1;
+                    c.IsEnabled = true;
                 }
 
-                c.IsEnabled = true;
+                
             }
 
             totalEnabledStates.Text = NumOfCountries.ToString();
-            RefreshList();
             RecalcVotes();
-            RecalcPercents();
-            
+            RefreshList();
+
         }
 
         public void RecalcPercents()
@@ -290,7 +293,6 @@ namespace WinForms_VotingCalculator
                 totalPopPercentVar.ForeColor = SystemColors.ControlText;
             }
 
-            RecalcPercents();
             RecalcVotes();
             RefreshList();
         }
