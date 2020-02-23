@@ -383,7 +383,7 @@
             // 
             this.popNoLbl.AutoSize = true;
             this.popNoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.popNoLbl.Location = new System.Drawing.Point(186, 150);
+            this.popNoLbl.Location = new System.Drawing.Point(190, 150);
             this.popNoLbl.Name = "popNoLbl";
             this.popNoLbl.Size = new System.Drawing.Size(26, 17);
             this.popNoLbl.TabIndex = 9;
@@ -393,7 +393,7 @@
             // 
             this.popYesLbl.AutoSize = true;
             this.popYesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.popYesLbl.Location = new System.Drawing.Point(53, 150);
+            this.popYesLbl.Location = new System.Drawing.Point(55, 150);
             this.popYesLbl.Name = "popYesLbl";
             this.popYesLbl.Size = new System.Drawing.Size(32, 17);
             this.popYesLbl.TabIndex = 8;
@@ -535,7 +535,7 @@
             // 
             this.msNoLbl.AutoSize = true;
             this.msNoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.msNoLbl.Location = new System.Drawing.Point(186, 150);
+            this.msNoLbl.Location = new System.Drawing.Point(190, 150);
             this.msNoLbl.Name = "msNoLbl";
             this.msNoLbl.Size = new System.Drawing.Size(26, 17);
             this.msNoLbl.TabIndex = 9;
@@ -545,7 +545,7 @@
             // 
             this.msYesLbl.AutoSize = true;
             this.msYesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.msYesLbl.Location = new System.Drawing.Point(53, 150);
+            this.msYesLbl.Location = new System.Drawing.Point(55, 150);
             this.msYesLbl.Name = "msYesLbl";
             this.msYesLbl.Size = new System.Drawing.Size(32, 17);
             this.msYesLbl.TabIndex = 8;
@@ -649,6 +649,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.popCalcPanel);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EUVotingCalculator";
             this.Text = "EU Voting Calculator";
             this.panel1.ResumeLayout(false);
