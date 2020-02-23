@@ -191,12 +191,12 @@ namespace WinForms_VotingCalculator
 
                 case "Simple majority":
                     minYesPercent = 50;
-                    minYesPop = 50;
+                    minYesPop = 0;
                     break;
 
                 case "Unanimity":
                     minYesPercent = 100;
-                    minYesPop = 100;
+                    minYesPop = 0;
                     break;
 
             }
