@@ -53,6 +53,7 @@
             this.votingResultImg = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.popCalcPanel = new System.Windows.Forms.Panel();
+            this.popMinYes = new System.Windows.Forms.Label();
             this.horizontalLine3 = new System.Windows.Forms.Label();
             this.popAbstainLbl = new System.Windows.Forms.Label();
             this.popNoLbl = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.popDesc = new System.Windows.Forms.Label();
             this.popTitle = new System.Windows.Forms.Label();
             this.PercentSign = new System.Windows.Forms.Label();
-            this.popMinYes = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.msMinYes = new System.Windows.Forms.Label();
             this.msAbstainLbl = new System.Windows.Forms.Label();
@@ -298,9 +298,9 @@
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Location = new System.Drawing.Point(651, 0);
+            this.label3.Location = new System.Drawing.Point(651, -2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(2, 382);
+            this.label3.Size = new System.Drawing.Size(10, 409);
             this.label3.TabIndex = 13;
             // 
             // finalResultLbl
@@ -309,9 +309,9 @@
             this.finalResultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold);
             this.finalResultLbl.Location = new System.Drawing.Point(710, 305);
             this.finalResultLbl.Name = "finalResultLbl";
-            this.finalResultLbl.Size = new System.Drawing.Size(130, 26);
+            this.finalResultLbl.Size = new System.Drawing.Size(139, 26);
             this.finalResultLbl.TabIndex = 12;
-            this.finalResultLbl.Text = "Final result";
+            this.finalResultLbl.Text = "Final Result";
             // 
             // finalResultVarLbl
             // 
@@ -344,6 +344,7 @@
             // 
             // popCalcPanel
             // 
+            this.popCalcPanel.Controls.Add(this.popMinYes);
             this.popCalcPanel.Controls.Add(this.horizontalLine3);
             this.popCalcPanel.Controls.Add(this.popAbstainLbl);
             this.popCalcPanel.Controls.Add(this.popNoLbl);
@@ -358,8 +359,18 @@
             this.popCalcPanel.Controls.Add(this.PercentSign);
             this.popCalcPanel.Location = new System.Drawing.Point(248, 208);
             this.popCalcPanel.Name = "popCalcPanel";
-            this.popCalcPanel.Size = new System.Drawing.Size(405, 195);
+            this.popCalcPanel.Size = new System.Drawing.Size(402, 195);
             this.popCalcPanel.TabIndex = 16;
+            // 
+            // popMinYes
+            // 
+            this.popMinYes.AutoSize = true;
+            this.popMinYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.popMinYes.Location = new System.Drawing.Point(324, 54);
+            this.popMinYes.Name = "popMinYes";
+            this.popMinYes.Size = new System.Drawing.Size(15, 16);
+            this.popMinYes.TabIndex = 3;
+            this.popMinYes.Text = "x";
             // 
             // horizontalLine3
             // 
@@ -452,7 +463,7 @@
             // 
             this.popDesc.AutoSize = true;
             this.popDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.popDesc.Location = new System.Drawing.Point(67, 52);
+            this.popDesc.Location = new System.Drawing.Point(85, 54);
             this.popDesc.Name = "popDesc";
             this.popDesc.Size = new System.Drawing.Size(242, 17);
             this.popDesc.TabIndex = 2;
@@ -462,7 +473,7 @@
             // 
             this.popTitle.AutoSize = true;
             this.popTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.popTitle.Location = new System.Drawing.Point(66, 24);
+            this.popTitle.Location = new System.Drawing.Point(84, 26);
             this.popTitle.Name = "popTitle";
             this.popTitle.Size = new System.Drawing.Size(94, 20);
             this.popTitle.TabIndex = 1;
@@ -477,20 +488,10 @@
             this.PercentSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PercentSign.Location = new System.Drawing.Point(9, 12);
             this.PercentSign.Name = "PercentSign";
-            this.PercentSign.Size = new System.Drawing.Size(52, 61);
+            this.PercentSign.Size = new System.Drawing.Size(66, 61);
             this.PercentSign.TabIndex = 0;
             this.PercentSign.Text = "%";
             this.PercentSign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // popMinYes
-            // 
-            this.popMinYes.AutoSize = true;
-            this.popMinYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.popMinYes.Location = new System.Drawing.Point(555, 260);
-            this.popMinYes.Name = "popMinYes";
-            this.popMinYes.Size = new System.Drawing.Size(15, 16);
-            this.popMinYes.TabIndex = 3;
-            this.popMinYes.Text = "x";
             // 
             // panel2
             // 
@@ -616,9 +617,9 @@
             this.msTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msTitle.Location = new System.Drawing.Point(84, 24);
             this.msTitle.Name = "msTitle";
-            this.msTitle.Size = new System.Drawing.Size(128, 20);
+            this.msTitle.Size = new System.Drawing.Size(131, 20);
             this.msTitle.TabIndex = 1;
-            this.msTitle.Text = "member states";
+            this.msTitle.Text = "Member States";
             // 
             // totalEnabledStates
             // 
@@ -639,7 +640,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 406);
-            this.Controls.Add(this.popMinYes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.votingResultImg);
             this.Controls.Add(this.finalResultVarLbl);
@@ -649,6 +649,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.popCalcPanel);
             this.Controls.Add(this.panel2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EUVotingCalculator";
             this.Text = "EU Voting Calculator";
             this.panel1.ResumeLayout(false);
