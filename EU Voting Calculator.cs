@@ -191,19 +191,19 @@ namespace WinForms_VotingCalculator
 
                 case "Simple majority":
                     minYesPercent = 50;
-                    minYesPop = 0;
+                    minYesPop = 50;
                     break;
 
                 case "Unanimity":
                     minYesPercent = 100;
-                    minYesPop = 0;
+                    minYesPop = 100;
                     break;
 
             }
 
             // Altering     the UI labels to represent the minimum result needed.
-            msMinYes.Text = minYesPercent.ToString();
-            popMinYes.Text = minYesPop.ToString();
+            msMinYes.Text = minYesPercent.ToString() + "%";
+            popMinYes.Text = minYesPop.ToString() + "%";
 
             // Re-evaluates the end result based on new voting rules.
             EvaluateResult();
