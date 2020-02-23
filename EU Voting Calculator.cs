@@ -202,8 +202,8 @@ namespace WinForms_VotingCalculator
             }
 
             // Altering     the UI labels to represent the minimum result needed.
-            msMinYes.Text = minYesPercent.ToString() + "%";
-            popMinYes.Text = minYesPop.ToString() + "%";
+            msMinYes.Text = minYesPercent.ToString();
+            popMinYes.Text = minYesPop.ToString();
 
             // Re-evaluates the end result based on new voting rules.
             EvaluateResult();
