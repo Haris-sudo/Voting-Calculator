@@ -11,6 +11,8 @@ namespace WinForms_VotingCalculator
 {
     public partial class EUVotingCalculator : Form
     {
+
+       
         public List<Country> countryList = new List<Country>();
         public List<Country> yesCountries = new List<Country>();
         public List<Country> noCountries = new List<Country>();
@@ -361,6 +363,8 @@ namespace WinForms_VotingCalculator
 
 
         // Next three methods change the votes for the country objects.
+
+        //radio button to give the user the option to use the abstain feature
         private void abstainRadioBtn_Click(object sender, EventArgs e)
         {
             if (abstainRadioBtn.Checked)
@@ -372,6 +376,7 @@ namespace WinForms_VotingCalculator
             }
         }
 
+        // "no" radio button presented as an option to the user so they can vote the country out 
         private void noRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (noRadioBtn.Checked)
@@ -382,6 +387,7 @@ namespace WinForms_VotingCalculator
             }
         }
 
+        // "yes" radio button presented as an option to the user so they can vote the country in
         private void yesRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (yesRadioBtn.Checked)
