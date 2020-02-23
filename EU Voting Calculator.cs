@@ -12,41 +12,51 @@ namespace WinForms_VotingCalculator
     public partial class EUVotingCalculator : Form
     {
         public List<Country> countryList = new List<Country>();
-
-
         public List<Country> yesCountries = new List<Country>();
         public List<Country> noCountries = new List<Country>();
         public List<Country> abstainCountries = new List<Country>();
 
+        // Overall population of the EU board. Calculated dynamically.
         public decimal OverallPopulation { get; set; }
+
+        // Total number of participating states.
         public int NumOfCountries { get; set; }
 
+        // Minimum yes percentage to proceed with the vote. i.e: 55 for qualified majority
         public decimal minYesPercent { get; set; }
         
+        // Minimum population percent to proceed with vote. i.e: 65 for qualified majority
         public decimal minYesPop { get; set; }
 
 
         public EUVotingCalculator()
         {
-            
+            // Initialises variables as constant values for less memory usage.
             OverallPopulation = 447470672;
             NumOfCountries = 27;
+
+            // Utilises a CSV reader and iterates over a CSV file containing all country data
             using (var reader = new StreamReader("..\\Country Data.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
+                // Creates a placeholder country to act as a template for the EnumerateRecords method
                 Country record = new Country("Placeholder", 0, false, true, 0);
 
+                // Enumerable for iteration
                 var records = csv.EnumerateRecords(record);
 
                 foreach (Country r in records)
                 {
+                    // Each country is added to the country list with the data in the CSV file.
                     Country newCountry = new Country(r.Name, r.Population, r.EurozoneStatus, r.IsEnabled, (r.Population / OverallPopulation) * 100);
                     countryList.Add(newCountry);
 
                 }
 
-
+                // Form is initialised
                 InitializeComponent();
+
+                // Set the countrybox to display the array content based on the name of the country.
                 countryBox.DisplayMember = "Name";
                 countryBox.ValueMember = "Name";
                 countryBox.DataSource = countryList;
@@ -56,6 +66,8 @@ namespace WinForms_VotingCalculator
         }
         public void RefreshList()
         {
+            /* Updates list for formatting purposes (e.g: [Disabled] and so on) - 
+               requires datasource reset */
             countryBox.DataSource = null;
             countryBox.Items.Clear();
             countryBox.DisplayMember = "Name";
@@ -67,6 +79,7 @@ namespace WinForms_VotingCalculator
 
         public decimal PopCalc()
         {
+            // Dynamic calculation of the overall population depending on enabled countries. 
             OverallPopulation = 0;
             foreach (Country c in countryList)
             {
@@ -82,7 +95,9 @@ namespace WinForms_VotingCalculator
 
         public void EvaluateResult()
         {
-            if ((Convert.ToDecimal(msPercentYes.Text) > minYesPercent) && (Convert.ToDecimal(popPercentYes.Text) > minYesPop))
+            /* Changing the UI based on whether the overall percentage is above or the same
+            as the percentage needed for the vote to be passed. */
+            if ((Convert.ToDecimal(msPercentYes.Text) >= minYesPercent) && (Convert.ToDecimal(popPercentYes.Text) >= minYesPop))
             {
                 finalResultVarLbl.Text = "Approved";
                 votingResultImg.ImageLocation = (@"..\\icons\up-arrow.png");
@@ -92,11 +107,13 @@ namespace WinForms_VotingCalculator
                 finalResultVarLbl.Text = "Rejected";
                 votingResultImg.ImageLocation = (@"..\\icons\down-arrow.png");
             }
+
+            // No draw condition, but this is highly unlikely and outside of the scope of the program
         }
 
         public void RecalcVotes()
         {
-            // Redefining overall population to get correct values for the percent calculations
+            // Redefining overall population to get correct values for the percent calculations 
             PopCalc();
             RecalcPercents();
 
@@ -113,8 +130,10 @@ namespace WinForms_VotingCalculator
             { 
                 if (c.IsEnabled)
                 {
+                    // Avoids all countries that aren't enabled
                     switch (c.GetVote())
                         {
+                        // Adds each country's popPercent to the respective value.
                             case true:
                                 popYesVal += c.PopPercent;
                                 msYesVal += Decimal.Divide(1, NumOfCountries) * 100;
@@ -134,6 +153,10 @@ namespace WinForms_VotingCalculator
                 
             }
 
+
+            // Painfully sub-optimal - someone find out another way to approach this?
+            // Six local vars can't be the only solution.
+
             msPercentYes.Text = decimal.Round(msYesVal,2).ToString();
             popPercentYes.Text = decimal.Round(popYesVal,2).ToString();
 
@@ -149,8 +172,9 @@ namespace WinForms_VotingCalculator
 
         private void votingRule_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // here goes code to change calculations and images based on
-            // the voting rule selected.
+            /* Depending on the voting rule selected, the minimum percents
+               are set to different values
+            */
 
             switch (votingRule.Text)
             {
@@ -176,27 +200,41 @@ namespace WinForms_VotingCalculator
                     break;
 
             }
+
+            // Altering     the UI labels to represent the minimum result needed.
             msMinYes.Text = minYesPercent.ToString();
             popMinYes.Text = minYesPop.ToString();
+
+            // Re-evaluates the end result based on new voting rules.
+            EvaluateResult();
 
         }
 
         private void countryBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Every time you select a new country from the dropdown menu...
             try
             {
+                // Converts it to a Country object so we can operate on it.
                 var c = (Country)countryBox.SelectedItem;
 
+                // Sets the enabled checkbox to whatever the country's enabled bool is set to.
                 countryEnabledCB.Checked = c.IsEnabled;
+                // Finds the file for the flag by using the current name.
                 countryFlagImg.ImageLocation = (@"..\\flags\" + c.Name.Replace(" [Disabled]", "") + ".png");
+                // Recalculates the population percentage.
                 c.PopPercent = ((c.Population / OverallPopulation) * 100);
                 totalPopVar.Text = c.Population.ToString();
+                // Rounds the percentage to 2 decimal places and updates the UI accordingly.
                 totalPopPercentVar.Text = ((Math.Round(c.PopPercent, 2).ToString()) + "%");
 
+                // Sets all radio buttons to be deselected for clean UI and next steps.
                 noRadioBtn.Checked = false;
                 yesRadioBtn.Checked = false;
                 abstainRadioBtn.Checked = false;
 
+
+                // Depending on the current vote, the correct radio button is selected.
                 switch (c.GetVote())
                 {
                     case true:
@@ -214,7 +252,7 @@ namespace WinForms_VotingCalculator
             }
             catch (System.NullReferenceException)
             {
-
+                // Passes on any null reference exceptions that may be thrown.
             }
 
 
@@ -265,6 +303,7 @@ namespace WinForms_VotingCalculator
 
         public void RecalcPercents()
         {
+            // Recalculates the percentages for every country.
             foreach (Country c in countryList)
             {
                 c.PopPercent = decimal.Divide(c.Population, OverallPopulation) * 100;
@@ -272,6 +311,8 @@ namespace WinForms_VotingCalculator
         }
         private void comboBoxFormat(object sender, ListControlConvertEventArgs e)
         {
+
+            // Formats the names of the countries to reflect their enabled status for better HCI
             bool c = ((Country)e.ListItem).IsEnabled == false;
             string countryName = ((Country)e.ListItem).Name;
             if (c)
@@ -287,21 +328,29 @@ namespace WinForms_VotingCalculator
 
         private void countryEnabledCB_Click(object sender, EventArgs e)
         {
+            // If a country is enabled or disabled...
+
             var c = (Country)countryBox.SelectedItem; 
             c.IsEnabled = countryEnabledCB.Checked;
             if (c.IsEnabled == false)
             {
+                // Reduces appropriate public variables.
                 OverallPopulation -= c.Population;
                 NumOfCountries -= 1;
                 totalEnabledStates.Text = NumOfCountries.ToString();
+
+                // Greys the text relating to the country out for better HCI.
                 totalPopPercentLbl.ForeColor = SystemColors.AppWorkspace;
                 totalPopPercentVar.ForeColor = SystemColors.AppWorkspace;
             }
             else
             {
+                // Increases appropriate public variables.
                 OverallPopulation += c.Population;
                 NumOfCountries += 1;
                 totalEnabledStates.Text = NumOfCountries.ToString();
+
+                // Undoes the previous colour changes to reflect its enabled nature.
                 totalPopPercentLbl.ForeColor = SystemColors.ControlText;
                 totalPopPercentVar.ForeColor = SystemColors.ControlText;
             }
@@ -310,12 +359,15 @@ namespace WinForms_VotingCalculator
             RefreshList();
         }
 
+
+        // Next three methods change the votes for the country objects.
         private void abstainRadioBtn_Click(object sender, EventArgs e)
         {
             if (abstainRadioBtn.Checked)
             {
                 var c = (Country)countryBox.SelectedItem;
                 c.ChangeVote(null);
+                EvaluateResult();
                 RecalcVotes();
             }
         }
