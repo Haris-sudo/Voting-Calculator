@@ -72,6 +72,7 @@ C:\Users\Ethan\Documents\GitHub\Voting-Calculator-Assignment\Voting-Calculator-A
 C:\Users\Ethan\Documents\GitHub\Voting-Calculator-Assignment\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csproj.CopyComplete
 C:\Users\Ethan\Documents\GitHub\Voting-Calculator-Assignment\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.exe
 C:\Users\Ethan\Documents\GitHub\Voting-Calculator-Assignment\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.pdb
+<<<<<<< HEAD
 C:\Users\xbox3\source\repos\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.exe.config
 C:\Users\xbox3\source\repos\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.exe
 C:\Users\xbox3\source\repos\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.pdb
@@ -86,3 +87,19 @@ C:\Users\xbox3\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-Voti
 C:\Users\xbox3\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csproj.CopyComplete
 C:\Users\xbox3\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.exe
 C:\Users\xbox3\source\repos\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.pdb
+=======
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.exe
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.pdb
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csprojAssemblyReference.cache
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\obj\Debug\WinForms_VotingCalculator.EUVotingCalculator.resources
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\obj\Debug\WinForms_VotingCalculator.Properties.Resources.resources
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csproj.GenerateResource.cache
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.exe.config
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.exe
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\bin\Debug\WinForms-VotingCalculator.pdb
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\bin\Debug\CsvHelper.xml
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\reube\Source\Repos\Korbarus\Voting-Calculator-Assignment\obj\Debug\WinForms-VotingCalculator.csproj.CopyComplete
+>>>>>>> dev-WinForms
