@@ -68,8 +68,7 @@ namespace WinForms_VotingCalculator
         }
         public void RefreshList()
         {
-            /* Updates list for formatting purposes (e.g: [Disabled] and so on) - 
-               requires datasource reset */
+            // Updates list for formatting purposes (e.g: [Disabled] and so on).
             countryBox.DataSource = null;
             countryBox.Items.Clear();
             countryBox.DisplayMember = "Name";
@@ -97,8 +96,7 @@ namespace WinForms_VotingCalculator
 
         public void EvaluateResult()
         {
-            /* Changing the UI based on whether the overall percentage is above or the same
-            as the percentage needed for the vote to be passed. */
+            // Changing the UI based on whether the overall percentage is above or the same as the percentage needed for the vote to be passed.
             if ((Convert.ToDecimal(msPercentYes.Text) >= minYesPercent) && (Convert.ToDecimal(popPercentYes.Text) >= minYesPop))
             {
                 finalResultVarLbl.Text = "Approved";
@@ -110,12 +108,12 @@ namespace WinForms_VotingCalculator
                 votingResultImg.ImageLocation = (@"..\\icons\red-arrow.png");
             }
 
-            // No draw condition, but this is highly unlikely and outside of the scope of the program
+            // No draw condition, but this is highly unlikely and outside of the scope of the program.
         }
 
         public void RecalcVotes()
         {
-            // Redefining overall population to get correct values for the percent calculations 
+            // Redefining overall population to get correct values for the percent calculations.
             PopCalc();
             RecalcPercents();
 
@@ -155,10 +153,6 @@ namespace WinForms_VotingCalculator
                 
             }
 
-
-            // Painfully sub-optimal - someone find out another way to approach this?
-            // Six local vars can't be the only solution.
-
             msPercentYes.Text = decimal.Round(msYesVal,2).ToString();
             popPercentYes.Text = decimal.Round(popYesVal,2).ToString();
 
@@ -174,9 +168,7 @@ namespace WinForms_VotingCalculator
 
         private void votingRule_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /* Depending on the voting rule selected, the minimum percents
-               are set to different values
-            */
+            // Depending on the voting rule selected, the minimum percents are set to different values.
 
             switch (votingRule.Text)
             {
@@ -203,7 +195,7 @@ namespace WinForms_VotingCalculator
 
             }
 
-            // Altering     the UI labels to represent the minimum result needed.
+            // Altering the UI labels to represent the minimum result needed.
             msMinYes.Text = minYesPercent.ToString();
             popMinYes.Text = minYesPop.ToString();
 
@@ -314,7 +306,7 @@ namespace WinForms_VotingCalculator
         private void comboBoxFormat(object sender, ListControlConvertEventArgs e)
         {
 
-            // Formats the names of the countries to reflect their enabled status for better HCI
+            // Formats the names of the countries to reflect their enabled status for better HCI.
             bool c = ((Country)e.ListItem).IsEnabled == false;
             string countryName = ((Country)e.ListItem).Name;
             if (c)
@@ -330,7 +322,7 @@ namespace WinForms_VotingCalculator
 
         private void countryEnabledCB_Click(object sender, EventArgs e)
         {
-            // If a country is enabled or disabled...
+            // If a country is enabled or disabled.
 
             var c = (Country)countryBox.SelectedItem; 
             c.IsEnabled = countryEnabledCB.Checked;
@@ -364,7 +356,7 @@ namespace WinForms_VotingCalculator
 
         // Next three methods change the votes for the country objects.
 
-        //radio button to give the user the option to use the abstain feature
+        //Radio button to give the user the option to use the abstain feature.
         private void abstainRadioBtn_Click(object sender, EventArgs e)
         {
             if (abstainRadioBtn.Checked)
@@ -376,7 +368,7 @@ namespace WinForms_VotingCalculator
             }
         }
 
-        // "no" radio button presented as an option to the user so they can vote the country out 
+        // "No" radio button presented as an option to the user so they can vote the country out.
         private void noRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (noRadioBtn.Checked)
@@ -387,7 +379,7 @@ namespace WinForms_VotingCalculator
             }
         }
 
-        // "yes" radio button presented as an option to the user so they can vote the country in
+        // "Yes" radio button presented as an option to the user so they can vote the country in
         private void yesRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (yesRadioBtn.Checked)
