@@ -102,12 +102,12 @@ namespace WinForms_VotingCalculator
             if ((Convert.ToDecimal(msPercentYes.Text) >= minYesPercent) && (Convert.ToDecimal(popPercentYes.Text) >= minYesPop))
             {
                 finalResultVarLbl.Text = "Approved";
-                votingResultImg.ImageLocation = (@"..\\icons\up-arrow.png");
+                votingResultImg.ImageLocation = (@"..\\icons\up_arrow.png");
             }
             else
             {
                 finalResultVarLbl.Text = "Rejected";
-                votingResultImg.ImageLocation = (@"..\\icons\down-arrow.png");
+                votingResultImg.ImageLocation = (@"..\\icons\red-arrow.png");
             }
 
             // No draw condition, but this is highly unlikely and outside of the scope of the program
